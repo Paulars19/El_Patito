@@ -1,36 +1,32 @@
-//Calcula el promedio de una lista de N datos
+// Calcula el promedio hasta que se ingrese un 1 (fin)
 
 Algoritmo Promedio
 	
-	Escribir "Ingrese la cantidad de datos:"
+	acum <- 0
+	contador <- 0
+	
+	Escribir "Ingrese datos (1 para finalizar):"
+	
 	Repetir
+		Leer dato
 		
-		Leer n
-		Si n<=0 Entonces
-			Escribir "El número debe ser positivo y distinto de cero."
-			Escribir "Introduzca un número válido."
+		Si dato <> 1 Entonces
+			Si dato < 0 Entonces
+				Escribir "El dato debe ser positivo."
+			SiNo
+				acum <- acum + dato
+				contador <- contador + 1
+			Fin Si
 		Fin Si
 		
-	Hasta Que n>0
+	Hasta Que dato = 1
 	
-	acum<-0
-	
-	Para i<-1 Hasta n Hacer
-		Escribir "Ingrese el dato ",i,":"
-		Repetir
-			Leer dato
-			Si dato<0 Entonces
-				Escribir "El dato debe ser positivo."
-				Escribir "Ingrese el dato ",i,":"
-			Fin Si
-		Hasta Que dato>=0
-		
-		acum<-acum+dato
-	Fin Para
-	
-	prom<-acum/n
-	
-	Escribir "El promedio es: ",prom
+	Si contador > 0 Entonces
+		prom <- acum / contador
+		Escribir "El promedio es: ", prom
+	SiNo
+		Escribir "No se ingresaron datos vÃ¡lidos."
+	Fin Si
 	
 FinAlgoritmo
 
